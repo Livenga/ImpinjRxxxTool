@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="ImpinjRxxxTool.Controls.FtpDownloadItemControl"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+  xmlns:local="clr-namespace:ImpinjRxxxTool.Controls"
+  xmlns:dataConverter="clr-namespace:ImpinjRxxxTool.DataConverter"
+  mc:Ignorable="d" 
+  d:DesignHeight="450" d:DesignWidth="800">
+<UserControl.Resources>
+  <dataConverter:BooleanToVisibilityConverter x:Key="boolToVisibility" />
+  <dataConverter:DateTimeToStringConverter x:Key="dateTimeToString" />
+</UserControl.Resources>
+<Grid Margin="3 2 0 2">
+  <Grid.Resources>
+    <Style TargetType="{x:Type TextBlock}">
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+  </Grid.Resources>
+
+  <Grid.ColumnDefinitions>
+    <ColumnDefinition Width="Auto" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="Auto" />
+  </Grid.ColumnDefinitions>
+
+  <TextBlock Grid.Column="0"
+    Margin="0 0 12 0"
+    Visibility="{Binding IsCompleted, Mode=OneWay, Converter={StaticResource boolToVisibility}, ConverterParameter=Hidden}"
+    Foreground="#4caf50" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" Text="&#xe73e;" />
+
+  <TextBlock Grid.Column="1"
+    Margin="0 0 12 0"
+    Text="{Binding Item, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:FtpDownloadItemControl}}}" />
+
+  <TextBlock Grid.Column="2"
+    Text="{Binding DownloadedAt, Mode=OneWay, Converter={StaticResource dateTimeToString}, ConverterParameter=yyyy-MM-dd HH:mm:ss}" />
+</Grid>
+</UserControl>
