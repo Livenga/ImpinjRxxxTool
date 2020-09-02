@@ -6,7 +6,8 @@
   xmlns:local="clr-namespace:ImpinjRxxxTool.Windows"
   xmlns:controls="clr-namespace:ImpinjRxxxTool.Controls"
   mc:Ignorable="d"
-  Title="Impinj Rxxx Tool" Height="450" Width="800">
+  Title="Impinj Rxxx Tool" Height="450" Width="800"
+  Unloaded="OnWindowUnloaded">
 <Grid>
   <Grid>
     <Grid.ColumnDefinitions>
@@ -121,12 +122,12 @@
 
     <!-- -->
     <Grid Grid.Column="1" Margin="6 3">
-      <controls:FtpControl Hostname="{Binding Text, ElementName=Hostname, Mode=OneWay}" />
+      <controls:FtpControl x:Name="FtpControl" Hostname="{Binding Text, ElementName=Hostname, Mode=OneWay}" />
     </Grid>
 
     <!-- -->
     <Grid Grid.Column="2" Margin="6 3">
-      <controls:SshControl Hostname="{Binding Text, ElementName=Hostname, Mode=OneWay}" />
+      <controls:SshControl x:Name="SshControl" Hostname="{Binding Text, ElementName=Hostname, Mode=OneWay}" />
     </Grid>
   </Grid>
 </Grid>

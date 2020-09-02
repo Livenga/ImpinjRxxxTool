@@ -28,7 +28,7 @@
     </Grid.ColumnDefinitions>
 
     <Grid Grid.Column="0">
-      <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Result, Mode=OneWay}">
+      <DataGrid x:Name="ResultDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Result, Mode=OneWay}">
         <DataGrid.Columns>
           <DataGridTextColumn Header="Key" Binding="{Binding Key, Mode=OneWay}" />
           <DataGridTextColumn Header="Value" Binding="{Binding Value, Mode=OneWay}" />

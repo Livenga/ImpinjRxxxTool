@@ -43,6 +43,13 @@ namespace ImpinjRxxxTool.Controls {
 
 
     /// <summary></summary>
+    public SshResultWindow? SshResultWindow {
+      private set => this.resultWindow = value;
+      get => this.resultWindow;
+    }
+
+
+    /// <summary></summary>
     public SshControlViewModel ViewModel => (SshControlViewModel)this.DataContext;
 
     private SshResultWindow? resultWindow = null;

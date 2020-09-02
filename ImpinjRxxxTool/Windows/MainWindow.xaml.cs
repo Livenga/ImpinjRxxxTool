@@ -42,13 +42,24 @@ namespace ImpinjRxxxTool.Windows {
             timeout: 3000)) {
         reader.Open();
 
+#if DEBUG
         Debug.WriteLine($"[DEBUG] MAC Address: {reader.MACAddress}");
+#endif
         if(reader.DetailedVersion != null) {
           return reader.DetailedVersion;
         }
       }
 
       return null;
+    }
+
+
+    /// <summary></summary>
+    private void OnWindowUnloaded(object source, RoutedEventArgs e) {
+      if(this.SshControl.SshResultWindow != null
+          && this.SshControl.SshResultWindow.IsActive) {
+        this.SshControl.SshResultWindow.Close();
+      }
     }
 
 
